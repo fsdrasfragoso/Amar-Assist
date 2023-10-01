@@ -16,6 +16,7 @@
             height: 100%;
             background-color: rgba(255, 255, 255, 0.7);
             display: flex;
+            flex-direction: column; /* Para posicionar o texto abaixo do loader */
             justify-content: center;
             align-items: center;
             z-index: 9999;
@@ -30,20 +31,27 @@
             animation: spin 2s linear infinite; /* Animação de rotação */
         }
 
+        #loader-text {
+            margin-top: 10px; /* Espaço entre o loader e o texto */
+            font-size: 16px; /* Tamanho da fonte do texto */
+            color: #ee9565; /* Cor do texto */
+        }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
     </style>
 </head>
-<body onclick="startAudio()"> <!-- Adiciona um evento de clique no body para iniciar o áudio -->
+<body onclick="startAudio()">
     <div id="loader-container">
         <div id="loader"></div>
+        <div id="loader-text">Toque aqui!</div>
     </div>
     <div id="pdf-container" style="display: none;">
         <iframe id="pdf-viewer" src=""></iframe>
     </div>
-    <audio id="background-music" loop autoplay> <!-- Adiciona autoplay para iniciar o áudio automaticamente -->
+    <audio id="background-music" loop autoplay>
         <source src="resource/song/song_apresentation.mp3" type="audio/mpeg">
         Seu navegador não suporta a reprodução de áudio.
     </audio>
